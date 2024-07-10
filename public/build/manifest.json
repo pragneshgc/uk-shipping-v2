@@ -1,0 +1,75 @@
+{
+  "resources/assets/js/app.css": {
+    "file": "assets/app-7e935274.css",
+    "src": "resources/assets/js/app.css"
+  },
+  "resources/assets/js/app.js": {
+    "assets": [
+      "assets/iconPaper-74eba9a2.png"
+    ],
+    "css": [
+      "assets/app-7e935274.css"
+    ],
+    "dynamicImports": [
+      "resources/assets/js/components/pages/general/Info.vue",
+      "resources/assets/js/components/pages/generic/NotFound.vue",
+      "resources/assets/js/components/pages/generic/NotAllowed.vue",
+      "resources/assets/js/components/pages/Reports.vue"
+    ],
+    "file": "assets/app-d2e97fa4.js",
+    "isEntry": true,
+    "src": "resources/assets/js/app.js"
+  },
+  "resources/assets/js/assets/images/iconPaper.png": {
+    "file": "assets/iconPaper-74eba9a2.png",
+    "src": "resources/assets/js/assets/images/iconPaper.png"
+  },
+  "resources/assets/js/components/TableComponentSearch.vue": {
+    "file": "assets/TableComponentSearch-717a15ec.js",
+    "imports": [
+      "resources/assets/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/assets/js/components/TableComponentSearch.vue"
+  },
+  "resources/assets/js/components/pages/Reports.vue": {
+    "dynamicImports": [
+      "resources/assets/js/components/TableComponentSearch.vue"
+    ],
+    "file": "assets/Reports-a2c47891.js",
+    "imports": [
+      "resources/assets/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/assets/js/components/pages/Reports.vue"
+  },
+  "resources/assets/js/components/pages/general/Info.vue": {
+    "file": "assets/Info-93d6d5e2.js",
+    "imports": [
+      "resources/assets/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/assets/js/components/pages/general/Info.vue"
+  },
+  "resources/assets/js/components/pages/generic/NotAllowed.vue": {
+    "file": "assets/NotAllowed-98c3c17f.js",
+    "imports": [
+      "resources/assets/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/assets/js/components/pages/generic/NotAllowed.vue"
+  },
+  "resources/assets/js/components/pages/generic/NotFound.vue": {
+    "file": "assets/NotFound-3711c9bf.js",
+    "imports": [
+      "resources/assets/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/assets/js/components/pages/generic/NotFound.vue"
+  },
+  "resources/assets/sass/app.scss": {
+    "file": "assets/app-ecced4aa.css",
+    "isEntry": true,
+    "src": "resources/assets/sass/app.scss"
+  }
+}
