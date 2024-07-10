@@ -59,16 +59,6 @@
                 </section>
             </transition>
 
-            <!-- <transition name="fade">
-                <section class="flexContent" v-if="!loading  && orderDetails != null && isCommercial">
-                    <div class="productListItem mb-10" v-for="p in orderDetails.Products" :key="p.ProductID">
-                        <div class="title">
-                            <h3>{{ p.Name }}, {{ p.Dosage }} x {{ p.Quantity }} {{ p.Unit }}</h3>
-                        </div>
-                    </div>
-                </section>
-            </transition>    -->
-
             <transition name="fade">
                 <section class="flexContent flex-direction-column" v-if="!loading && orderDetails != null">
                     <div style="float: none;background: #f7941d4f;width: 100%;padding: 5px;text-align: center;
@@ -127,14 +117,6 @@
                                 class="btn btnSize01 tertiaryBtn bigButton" type="submit">
                                 Reset Label
                             </button>
-
-                            <!-- REMOVE THIS WHEN DONE TESTING AND REPLACE IT WITH SOMETHING THAT WORKS -->
-                            <!-- <button @click="request()" :disabled="requestedPrint"
-                            class="btn btnSize01 tertiaryBtn bigButton mr-10 big-round-button" type="submit">
-                                <div v-if="requestedPrint" class="loader" style="">Loading...</div>
-                                <span v-else>Request Label</span>
-                            </button> -->
-
 
                         </div>
                         <div v-else>

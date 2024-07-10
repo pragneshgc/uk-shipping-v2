@@ -43,25 +43,6 @@ export default {
                     value: 'end_date',
                     type: 'date',
                 },
-                // {
-                //     title: 'Timestamp',
-                //     value: 'timestamp',
-                //     type: 'select',
-                //     options: [
-                //         {
-                //             title: 'Select Date Type',
-                //             value: ''
-                //         },
-                //         {
-                //             title: 'Recieved Date',
-                //             value: 'recieved_date'
-                //         },
-                //         {
-                //             title: 'Processed Date',
-                //             value: 'processed_date'
-                //         }
-                //     ]
-                // },
                 {
                     title: 'Reference Number',
                     value: 'reference',

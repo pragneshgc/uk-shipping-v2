@@ -50,15 +50,25 @@
                                 vertical-align: top;
                             ">
                             </th>
-                            <th class="clickable" v-for="(value, key) in data.data[0]"
-                                v-if="typeof hiddenColumns != 'undefined' ? !hiddenColumns.includes(key) : true"
-                                v-on:click="setOrder(key)">
-                                {{ translate(key) }}
+                            <template v-for="(value, key) in data.data[0]">
+                                <template
+                                    v-if="typeof hiddenColumns != 'undefined' ? !hiddenColumns.includes(key) : true">
+                                    <th class="clickable" v-on:click="setOrder(key)">
+                                        {{ translate(key) }}
 
-                                <i v-if="key == orderBy && orderDirection == 'DESC'" class="fa fa-caret-down"></i>
-                                <i v-if="key == orderBy && orderDirection == 'ASC'" class="fa fa-caret-up"></i>
-                                <i v-if="key != orderBy" class="fa fa-sort"></i>
-                            </th>
+                                        <i v-if="key == orderBy && orderDirection == 'DESC'"
+                                            class="fa fa-caret-down"></i>
+                                        <i v-if="key == orderBy && orderDirection == 'ASC'" class="fa fa-caret-up"></i>
+                                        <i v-if="key != orderBy" class="fa fa-sort"></i>
+                                    </th>
+                                </template>
+                                <template>
+                                    <td>
+                                        <span v-html="value"></span>
+                                    </td>
+                                </template>
+                            </template>
+
                             <th style="width: 80px;"></th>
                         </tr>
                     </thead>
@@ -78,14 +88,18 @@
                                 <!-- <span class="checkmark"></span>  -->
                                 <!-- </label> -->
                             </td>
-                            <td v-for="(value, key) in item"
-                                v-if="typeof hiddenColumns != 'undefined' ? !hiddenColumns.includes(key) : true">
-                                <span v-if="typeof value == 'string'" v-html="value"></span>
-                                <ul v-else-if="typeof value == 'object'">
-                                    <li v-for="obj in value">{{ obj }}</li>
-                                </ul>
-                                <span v-else v-html="value"></span>
-                            </td>
+                            <template v-for="(value, key) in item">
+                                <template
+                                    v-if="typeof hiddenColumns != 'undefined' ? !hiddenColumns.includes(key) : true">
+                                    <td>
+                                        <ul v-if="typeof value == 'object'">
+                                            <li v-for="obj in value">{{ obj }}</li>
+                                        </ul>
+                                        <span v-else v-html="value"></span>
+                                    </td>
+                                </template>
+                            </template>
+
                             <td>
                                 <a class="btn btn-primary waves-effect table-icon" @click="redirect(item[redirectId])">
                                     <i class="fa fa-search-plus" aria-hidden="true"></i>
