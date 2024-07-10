@@ -24,7 +24,6 @@
         "marked": "^13.0.2",
         "remove": "^0.1.5",
         "vue-router": "^4.4.0",
-        "vue-select": "^4.0.0-beta.6",
         "vue-sweetalert2": "^5.0.11",
         "vuejs3-datepicker": "^1.1.3"
     }
