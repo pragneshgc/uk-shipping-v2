@@ -2,11 +2,11 @@ export default {
     methods: {
         /**
          * Use the 4sm printer to print document
-         * @param {string} url 
+         * @param {string} url
          */
         printUrl: function (url) {
             let address = 'http://localhost:63020';
-            let data = {type: 'pdf', url: url, printer: 'Zebra  ZP 450-200 dpi'}
+            let data = { type: 'pdf', url: url, printer: 'Zebra  ZP 450-200 dpi' }
             // let data = {type: 'pdf', url: url, printer: 'Microsoft Print to PDF'}
             //Microsoft Print to PDF
             let xhr = new XMLHttpRequest();
@@ -17,10 +17,10 @@ export default {
                     console.log(this.responseText);
                 }
             });
-    
+
             xhr.open("POST", address);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    
+
             data = Object.keys(data).map((key) => {
                 return encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
             }).join('&');
@@ -30,11 +30,11 @@ export default {
 
         /**
          * Use the 4sm printer to print document
-         * @param {string} url 
+         * @param {string} url
          */
         printHtml: function (url) {
             let address = 'http://localhost:63020';
-            let data = {type: 'html', url: url, printer: 'P-6035i MFP'}
+            let data = { type: 'html', url: url, printer: 'P-6035i MFP' }
             let xhr = new XMLHttpRequest();
 
             xhr.addEventListener("readystatechange", function () {
@@ -43,10 +43,10 @@ export default {
                     console.log(this.responseText);
                 }
             });
-    
+
             xhr.open("POST", address);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    
+
             data = Object.keys(data).map((key) => {
                 return encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
             }).join('&');
@@ -54,23 +54,23 @@ export default {
             xhr.send(data);
         },
 
-        printFile: function (url, callback = false)  { 
+        printFile: function (url, callback = false) {
             let address = 'http://localhost:63020';
             // let data = {type: 'gif', url: url}
-            let data = {type: 'gif', url: url, printer: 'Zebra  ZP 450-200 dpi'}
+            let data = { type: 'gif', url: url, printer: 'Zebra  ZP 450-200 dpi' }
             let xhr = new XMLHttpRequest();
 
             xhr.addEventListener("readystatechange", function () {
                 if (this.readyState === 4) {
-                    if(callback){
+                    if (callback) {
                         callback();
                     }
                 }
             });
-    
+
             xhr.open("POST", address);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    
+
             data = Object.keys(data).map((key) => {
                 return encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
             }).join('&');
@@ -78,7 +78,7 @@ export default {
             xhr.send(data);
         },
 
-        
+
         printLabel: function (label) {
             var printWindow = window.open('', 'PRINT', 'height=400,width=600');
             printWindow.document.write(label);
@@ -97,11 +97,11 @@ export default {
 
             setTimeout(function () {
                 printWindow.print();
-                if(!select){
+                if (!select) {
                     printWindow.close();
                 }
             }, 1000);
-        },        
+        },
         printChart: function (element) {
             var printWindow = window.open('', 'PRINT', 'height=400,width=600');
 
@@ -110,13 +110,8 @@ export default {
             printWindow.document.write('<h1>' + document.title + '</h1>');
 
             // if this is a table element we need to print it in other ways
-            if (!element.classList.contains('natcol-table')) {
-                var canvasChart = element.querySelector('canvas');
-                var chartImage = canvasChart.toDataURL("image/png");
-                printWindow.document.write('<img src="' + chartImage + '"/>');
-            } else {
-                printWindow.document.write(element.getElementsByTagName('table')[0].outerHTML);
-            }
+
+            printWindow.document.write(element.getElementsByTagName('table')[0].outerHTML);
 
             printWindow.document.write('</body></html>');
 

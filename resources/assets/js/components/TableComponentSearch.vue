@@ -47,10 +47,10 @@
                         </select>
                     </div>
                     <div class="dropdown float-right">
-                        <a class="btn btn-primary waves-effect" v-on:click="printChart($el)"><i class="fa fa-print"
-                                aria-hidden="true"></i></a>
-                        <a class="btn btn-primary waves-effect" v-on:click="exportPDF($el)"><i class="fa fa-file-pdf-o"
-                                aria-hidden="true"></i></a>
+                        <a class="btn btn-primary waves-effect" v-on:click="printChart(this.$refs.cardbody)"><i
+                                class="fa fa-print" aria-hidden="true"></i></a>
+                        <a class="btn btn-primary waves-effect" v-on:click="exportPDF(this.$refs.cardbody)"><i
+                                class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
                         <a v-if="csvUrlSearch" class="btn btn-primary waves-effect" :href="csvUrlSearch"><i
                                 class="fa fa-file" aria-hidden="true"></i></a>
                         <a v-else class="btn btn-primary waves-effect" v-on:click="exportCSV(data.data, tableTitle)"><i
@@ -60,7 +60,7 @@
                 <slot> </slot>
             </div>
             <!--Card content-->
-            <div class="card-body">
+            <div class="card-body" ref="cardbody">
                 <!-- Table  -->
                 <table style="table-layout: auto" v-show="data.data.length >= 1" class="table table-hover">
                     <!-- Table head -->

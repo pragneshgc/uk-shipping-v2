@@ -554,3 +554,7 @@ input:focus, select:focus, option:focus, option:active, select:focus-within, tex
     height: auto !important;
     position: relative !important;
 }
+.hideicon th span,
+.hideicon th i{
+    display: none !important;
+}
