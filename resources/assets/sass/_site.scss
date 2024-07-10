@@ -73,11 +73,11 @@
 }
 
 
-.sidebarWrapper ul.sidebar ul.nav li.active a{
+.sidebarWrapper ul.sidebar ul.nav li a.active{
     transition: all .2s ease-in-out;
 }
 
-.sidebarWrapper ul.sidebar ul.nav li.active a{
+.sidebarWrapper ul.sidebar ul.nav li a.active{
     background-color: #121212;
 }
 
@@ -148,7 +148,7 @@ header {
 
 /*BUTTONS*/
 .primaryBtn:hover{
-    background-color: rgb(60, 138, 168);    
+    background-color: rgb(60, 138, 168);
     border: 1px solid rgb(60, 138, 168);
 }
 
@@ -167,23 +167,23 @@ header {
 }
 
 .tertiaryBtn:hover{
-    background-color: rgb(60, 138, 168);    
-    border: 1px solid rgb(60, 138, 168);    
+    background-color: rgb(60, 138, 168);
+    border: 1px solid rgb(60, 138, 168);
 }
 
 .disabledBtn{
-    background-color: rgb(60, 138, 168);    
+    background-color: rgb(60, 138, 168);
     border: 1px solid rgb(60, 138, 168);
 }
 
 button:disabled{
-    background-color: rgb(60, 138, 168);    
+    background-color: rgb(60, 138, 168);
     border: 1px solid rgb(60, 138, 168);
     cursor: not-allowed;
 }
 
 button:disabled:hover{
-    background-color: rgb(60, 138, 168);    
+    background-color: rgb(60, 138, 168);
     border: 1px solid rgb(60, 138, 168);
 }
 
@@ -219,7 +219,7 @@ button:disabled:hover{
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
     border: solid 1px #cfcfcf;
     background: #fff;
-    padding: 5px 10px;    
+    padding: 5px 10px;
     border-bottom: solid 5px rgb(60, 138, 168);
     ul{
         display: flex;
@@ -227,12 +227,12 @@ button:disabled:hover{
         align-items: center;
         flex-grow: 1;
         li{
+            font-size: 20px;
+            font-weight: 700;
             span{
                 font-size: 16px;
                 font-weight: 500;
             }
-            font-size: 20px;
-            font-weight: 700;
         }
     }
 }
@@ -291,7 +291,7 @@ button:disabled:hover{
       border-top-right-radius: 5px;
       border-bottom-left-radius: 0;
     }
-    
+
     .file-info {
       display: block;
       margin: 10px 5px;
@@ -357,7 +357,7 @@ button:disabled:hover{
         background: rgb(60, 138, 168);
         border: solid 1px #196f71;
         color: #fff;
-    }    
+    }
 }
 
 /*ACTIVITY LOG*/
@@ -366,7 +366,7 @@ button:disabled:hover{
 .activity-log-wrapper{
     padding: 0!important;
     list-style: none!important;
-    overflow: auto;    
+    overflow: auto;
     margin-top: 20px;
     .activity-log-item{
         transition: all .3s ease-in-out;
@@ -403,11 +403,11 @@ input, textarea, select{
     // border-top: none!important;
     // border-left: none!important;
     // border-right: none!important;
-    // border-bottom: 2px solid gainsboro!important;   
+    // border-bottom: 2px solid gainsboro!important;
     font-family:"Roboto Condensed", sans-serif;
     border: 1px solid gainsboro!important;
     border-bottom-width: 2px!important;
-    transition: border-color .2s cubic-bezier(0.55, 0.055, 0.675, 0.19)!important;      
+    transition: border-color .2s cubic-bezier(0.55, 0.055, 0.675, 0.19)!important;
 }
 
 select{
@@ -435,7 +435,7 @@ input:not(:placeholder-shown){
 
     &:disabled{
         // border-bottom:2px solid gainsboro!important;
-        border: 1px solid gainsboro!important; 
+        border: 1px solid gainsboro!important;
         border-bottom-width: 2px!important;
     }
 }
@@ -472,7 +472,7 @@ input:focus, select:focus, option:focus, option:active, select:focus-within, tex
 
 .select-dropdown-active {
     border: 1px solid rgb(60, 138, 168)!important;
-    border-bottom-width: 2px!important;    
+    border-bottom-width: 2px!important;
 }
 
 .infoHeader.active select{
@@ -502,7 +502,7 @@ input:focus, select:focus, option:focus, option:active, select:focus-within, tex
             transition: background .3s cubic-bezier(0.075, 0.82, 0.165, 1);
             .vue-treeselect__icon{
                 color: #ffffff;
-            }  
+            }
 
             &:hover{
                 // color: #f53c38;
@@ -517,14 +517,14 @@ input:focus, select:focus, option:focus, option:active, select:focus-within, tex
     }
     &.vue-treeselect--has-value{
         .vue-treeselect__control{
-            border: 1px solid rgb(60, 138, 168) !important; 
+            border: 1px solid rgb(60, 138, 168) !important;
             border-bottom-width: 2px!important;
         }
     }
     &.vue-treeselect--focused{
         .vue-treeselect__control{
             border: 1px solid rgb(60, 138, 168) !important;
-            border-bottom-width: 2px !important;    
+            border-bottom-width: 2px !important;
         }
     }
 }
@@ -534,9 +534,18 @@ input:focus, select:focus, option:focus, option:active, select:focus-within, tex
     background: #f53c38;
     color: white;
     border: #f53c38;
-    border-radius: 0;    
+    border-radius: 0;
     padding: 3px;
     position: fixed;
     bottom: 0;
     z-index: 2;
+}
+
+.vuejs3-datepicker__value{
+    border-radius: 0px !important;
+    padding: 0 10px !important;
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
+    border: 1px solid gainsboro !important;
 }

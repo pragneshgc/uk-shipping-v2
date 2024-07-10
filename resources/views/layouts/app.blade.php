@@ -13,8 +13,6 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Styles -->
-    <link href="css/site.css" rel="stylesheet" type="text/css" />
-    {{-- <link href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css"> --}}
     @vite(['resources/assets/sass/app.scss'])
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
     <script>
@@ -48,9 +46,6 @@
         <app-layout></app-layout>
     </div>
     <!-- Scripts -->
-    <script type="text/javascript" src="mdb/js/jquery-3.3.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    {{-- <script type="text/javascript" src="{{ mix('/js/app.js') }}"></script> --}}
     @vite(['resources/assets/js/app.js'])
 </body>
 

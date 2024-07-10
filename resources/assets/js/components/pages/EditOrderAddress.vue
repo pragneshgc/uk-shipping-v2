@@ -41,36 +41,52 @@
                     @submit.prevent="save" class="pxp-form mb-20">
                     <div class="form-column">
                         <h3>Home Details</h3>
-                        <div v-if="columnHome.includes(value)" class="form-group form-group-2"
-                            v-for="(key, value) in details.order" :key="value">
-                            <label :for="key">{{ alias[value] }}</label>
-                            <input v-if="!['CountryCode', 'DCountryCode', 'DeliveryID', 'Notes'].includes(value)" class=""
-                                :name="key" :placeholder="''" v-model="details.order[value]">
-                            <select v-else-if="['DCountryCode', 'CountryCode'].includes(value)"
-                                v-model="details.order[value]">
-                                <option v-for="country in countries" :value="country.CountryID">{{ country.Name }}</option>
-                            </select>
-                            <select v-else-if="['DeliveryID'].includes(value)" v-model="details.order[value]">
-                                <option v-for="company in companies" :value="company.SettingID">{{ company.Name }}</option>
-                            </select>
-                        </div>
+                        <template v-for="(key, value) in details.order" :key="value">
+                            <template v-if="columnHome.includes(value)">
+                                <div class="form-group form-group-2">
+                                    <label :for="key">{{ alias[value] }}</label>
+                                    <input
+                                        v-if="!['CountryCode', 'DCountryCode', 'DeliveryID', 'Notes'].includes(value)"
+                                        class="" :name="key" :placeholder="''" v-model="details.order[value]">
+                                    <select v-else-if="['DCountryCode', 'CountryCode'].includes(value)"
+                                        v-model="details.order[value]">
+                                        <option v-for="country in countries" :value="country.CountryID">{{ country.Name
+                                            }}
+                                        </option>
+                                    </select>
+                                    <select v-else-if="['DeliveryID'].includes(value)" v-model="details.order[value]">
+                                        <option v-for="company in companies" :value="company.SettingID">{{ company.Name
+                                            }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </template>
+                        </template>
                     </div>
 
                     <div class="form-column">
                         <h3>Delivery Details</h3>
-                        <div v-if="columnDelivery.includes(value)" class="form-group form-group-2"
-                            v-for="(key, value) in details.order" :key="value">
-                            <label :for="key">{{ alias[value] }}</label>
-                            <input v-if="!['CountryCode', 'DCountryCode', 'DeliveryID', 'Notes'].includes(value)" class=""
-                                :name="key" :placeholder="''" v-model="details.order[value]">
-                            <select v-else-if="['DCountryCode', 'CountryCode'].includes(value)"
-                                v-model="details.order[value]">
-                                <option v-for="country in countries" :value="country.CountryID">{{ country.Name }}</option>
-                            </select>
-                            <select v-else-if="['DeliveryID'].includes(value)" v-model="details.order[value]">
-                                <option v-for="company in companies" :value="company.SettingID">{{ company.Name }}</option>
-                            </select>
-                        </div>
+                        <template v-for="(key, value) in details.order" :key="value">
+                            <template v-if="columnDelivery.includes(value)">
+                                <div class="form-group form-group-2">
+                                    <label :for="key">{{ alias[value] }}</label>
+                                    <input
+                                        v-if="!['CountryCode', 'DCountryCode', 'DeliveryID', 'Notes'].includes(value)"
+                                        class="" :name="key" :placeholder="''" v-model="details.order[value]">
+                                    <select v-else-if="['DCountryCode', 'CountryCode'].includes(value)"
+                                        v-model="details.order[value]">
+                                        <option v-for="country in countries" :value="country.CountryID">{{ country.Name
+                                            }}
+                                        </option>
+                                    </select>
+                                    <select v-else-if="['DeliveryID'].includes(value)" v-model="details.order[value]">
+                                        <option v-for="company in companies" :value="company.SettingID">{{ company.Name
+                                            }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </template>
+                        </template>
 
                         <div class="form-group form-group-2">
                             <label for="Notes">{{ alias['Notes'] }}</label>
@@ -88,7 +104,8 @@
                                 :placeholder="''" v-model="details.ups[value]">
                             <select v-else-if="['DCountryCode', 'CountryCode'].includes(value)"
                                 v-model="details.ups[value]">
-                                <option v-for="country in countries" :value="country.CountryID">{{ country.Name }}</option>
+                                <option v-for="country in countries" :value="country.CountryID">{{ country.Name }}
+                                </option>
                             </select>
                         </div>
                     </div>
@@ -175,10 +192,10 @@ export default {
         this.getCountries();
         this.getCompanies();
         this.getOrderDetails();
-        this.$root.$on('modal.close.all', this.close);
+        this.emitter.on('modal.close.all', this.close);
     },
     destroyed() {
-        this.$root.$off('modal.close.all');
+        this.emitter.off('modal.close.all');
     },
     methods: {
         getOrderDetails() {
@@ -284,13 +301,13 @@ export default {
                     this.postSuccess('Saved');
                     this.close();
                     this.saveConfirmation = false;
-                    this.$root.$emit('orderupdate');
+                    this.emitter.emit('orderupdate');
                 })
                 .catch((error) => {
                     this.postError(error);
                     this.close();
                     this.saveConfirmation = false;
-                    this.$root.$emit('orderupdate');
+                    this.emitter.emit('orderupdate');
                 })
         },
         back() {

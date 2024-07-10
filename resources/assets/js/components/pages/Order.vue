@@ -26,14 +26,17 @@
                             <li><span>Name: </span>{{ orderDetails.Name }}</li>
                             <li><span>Surname: </span>{{ orderDetails.Surname }}</li>
                             <li><span>Status: </span>{{ orderStatuses[orderDetails.Status] }}</li>
-                            <li v-if="orderDetails.TrackingCode != '' && orderDetails.TrackingCode != null"><span>Tracking
-                                    Code: </span>{{ orderDetails.TrackingCode }}</li>
+                            <li v-if="orderDetails.TrackingCode != '' && orderDetails.TrackingCode != null">
+                                <span>Tracking
+                                    Code: </span>{{ orderDetails.TrackingCode }}
+                            </li>
                             <li
                                 v-if="orderDetails.Repeats != '0' && orderDetails.Repeats != '' && [143, 162, 205, 243].includes(orderDetails.DCountryCode)">
                                 <span>Commercial value: </span>{{ orderDetails.Repeats }}
                             </li>
                             <li>
-                                <button @click="editDetails(orderDetails)" class="btn btnSize02 tertiaryBtn" type="button">
+                                <button @click="editDetails(orderDetails)" class="btn btnSize02 tertiaryBtn"
+                                    type="button">
                                     Edit Address
                                 </button>
                                 <transition name="fade">
@@ -98,8 +101,9 @@
                                 Reprint Label
                             </button>
                             <button @click="manual()"
-                                v-if="orderDetails.DeliveryID == '7' && (isManual || isCommercialPaper)" :disabled="true"
-                                class="btn btnSize01 tertiaryBtn bigButton big-round-button" type="submit">
+                                v-if="orderDetails.DeliveryID == '7' && (isManual || isCommercialPaper)"
+                                :disabled="true" class="btn btnSize01 tertiaryBtn bigButton big-round-button"
+                                type="submit">
                                 {{ manualPrintText }}
                             </button>
                             <button @click="manual()"
@@ -177,7 +181,8 @@
                 <section v-if="!loading && orderDetails != null && !orderDetails.Decomissioned">
                     <div class="infoBox warning">
                         <p>
-                            THIS ORDER IS NOT READY TO BE SHIPPED. IT NEEDS TO BE DECOMMISSIONED FIRST. PLEASE SPEAK TO A
+                            THIS ORDER IS NOT READY TO BE SHIPPED. IT NEEDS TO BE DECOMMISSIONED FIRST. PLEASE SPEAK TO
+                            A
                             DISPENSING TEAM MEMBER
                         </p>
                     </div>
@@ -275,12 +280,12 @@ export default {
         // this.getActivity();
         document.getElementById("orderID").focus();
 
-        this.$root.$on('orderupdate', (e) => {
+        this.emitter.on('orderupdate', (e) => {
             this.search();
         });
     },
     destroyed() {
-        this.$root.$off('orderupdate');
+        this.emitter.off('orderupdate');
     },
     computed: {
         isCommercial() {

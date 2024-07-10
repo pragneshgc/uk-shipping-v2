@@ -17,40 +17,36 @@
                         </a>
                     </li>
 
-                    <router-link tag="li" to="/" exact>
-                        <a href="javascript:;" class="sidebar-link">
+                    <li>
+                        <router-link to="/" class="sidebar-link">
                             <i class="fa fa-home"></i>
                             Home
-                        </a>
-                    </router-link>
-                    <router-link v-if="canUserAccessModule(
-                        appInfo.active_modules,
-                        appInfo.module_roles,
-                        'Import Tracking',
-                        userInfo.shipping_role_id
-                    )" tag="li" to="/import-tracking" exact>
-                        <a href="javascript:;" class="sidebar-link">
+                        </router-link>
+                    </li>
+
+                    <li>
+                        <router-link v-if="canUserAccessModule(
+                            appInfo.active_modules,
+                            appInfo.module_roles,
+                            'Import Tracking',
+                            userInfo.shipping_role_id
+                        )" to="/import-tracking" class="sidebar-link">
                             <i class="fa fa-upload"></i>
                             Import Tracking
-                        </a>
-                    </router-link>
-                    <!-- <router-link v-if="userInfo.role >= 50" tag="li" to="/users" exact>
-                        <a href="javascript:;" class="sidebar-link">
-                            <i class="fa fa-users"></i>
-                            Users
-                        </a>
-                    </router-link> -->
-                    <router-link v-if="canUserAccessModule(
-                        appInfo.active_modules,
-                        appInfo.module_roles,
-                        'Shipping Reports',
-                        userInfo.shipping_role_id
-                    )" tag="li" to="/reports" exact>
-                        <a href="javascript:;" class="sidebar-link">
+                        </router-link>
+                    </li>
+
+                    <li>
+                        <router-link v-if="canUserAccessModule(
+                            appInfo.active_modules,
+                            appInfo.module_roles,
+                            'Shipping Reports',
+                            userInfo.shipping_role_id
+                        )" to="/reports" class="sidebar-link">
                             <i class="fa fa-file-text-o"></i>
                             Reports
-                        </a>
-                    </router-link>
+                        </router-link>
+                    </li>
                 </ul>
             </li>
 
